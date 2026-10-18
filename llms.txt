@@ -1,0 +1,22 @@
+# Free Bug Identifier
+
+> Free Bug Identifier is a privacy-first, on-device entomological tool designed to identify insects, arachnids, spiders, and household pests instantly from photographs without cloud storage or subscription paywalls.
+
+## Core Features
+- **Client-Side Visual Scanner**: Analyzes insect images locally inside the browser using HTML5 Canvas heuristics and morphological vector estimation. No photos are ever uploaded to cloud servers.
+- **Instant Pest Differentiation**: Distinguishes high-risk household pests from harmless lookalikes (e.g., Bed Bug vs. Carpet Beetle, Brown Recluse vs. Wolf Spider, Deer Tick vs. Dog Tick).
+- **Taxonomic & Danger Ratings**: Delivers binomial scientific names, insect orders, medical bite risk metrics, and integrated pest management (IPM) recommendations.
+- **Completely Free & Accessible**: Fully WCAG AA/AAA compliant with zero paywalls and zero required account sign-ups.
+
+## Key Species Profiles Covered
+- **Bed Bug (*Cimex lectularius*)**: Wingless, dorsoventrally flattened blood-feeding parasite. High medical nuisance.
+- **Varied Carpet Beetle (*Anthrenus verbasci*)**: Harmless to humans, patterned scales with wings. Causes larval contact dermatitis often mistaken for bites.
+- **Brown Recluse (*Loxosceles reclusa*)**: Cytotoxic venomous spider identified by 6 eyes (3 pairs) and a distinct violin marking on the cephalothorax.
+- **Blacklegged Deer Tick (*Ixodes scapularis*)**: Vector for Lyme disease spirochetes (*Borrelia burgdorferi*). Solid black legs with reddish-brown teardrop abdomen.
+- **German Cockroach (*Blattella germanica*)**: High reproductive allergen and pathogen vector displaying two dark parallel stripes on the pronotum.
+
+## Important Links & Endpoints
+- [Free Bug Identifier Scanner](https://www.bugidentifier.org/): Interactive browser-based photo analysis and quick test specimens.
+- [Impostor Matrix & Guide](https://www.bugidentifier.org/#comparison): Deep comparative guide detailing structural morphology, mouthparts, wing venation, and non-chemical pest remediation.
+- [About & Scientific Methodology](https://www.bugidentifier.org/about.html): Entomological standards, dichotomous identification logic, and scientific advisory board.
+- [Privacy Policy](https://www.bugidentifier.org/privacy.html): Full explanation of the on-device processing guarantee and zero-data-collection policy.
