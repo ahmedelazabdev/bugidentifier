@@ -3,70 +3,84 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy | EntomoScan On-Device Scanning Guarantee</title>
-  <meta name="description" content="EntomoScan protects your privacy. Learn how our image analysis works on-device without harvesting personal photos or uploading home images to cloud servers.">
+  <title>Free Bug Identifier | Privacy Policy & Data Safety</title>
+  <meta name="description" content="Read our privacy policy. Free Bug Identifier operates 100% on-device inside your browser without uploading, collecting, or selling your personal images.">
   <link rel="canonical" href="https://www.bugidentifier.org/privacy.html">
+
   <style>
     :root {
-      --primary: #1e3a1e;
-      --accent: #2e7d32;
-      --text: #212529;
+      --primary: #153315;
+      --accent: #226b26;
+      --text: #1a202c;
+      --text-muted: #4a5568;
       --bg: #fbfbf9;
       --surface: #ffffff;
-      --border: #e0e0dc;
+      --border: #d1d5db;
     }
+
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
     body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
-    header { background: #fff; border-bottom: 1px solid var(--border); padding: 1rem 1.5rem; }
+    a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    a:hover { text-decoration: underline; }
+
+    .skip-link { position: absolute; top: -40px; left: 10px; background: var(--primary); color: #fff; padding: 8px 16px; z-index: 999; border-radius: 4px; }
+    .skip-link:focus { top: 10px; }
+
+    header { background: #fff; border-bottom: 1px solid var(--border); padding: 1rem 1.5rem; position: sticky; top: 0; z-index: 100; }
     .nav-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
     .logo { font-size: 1.3rem; font-weight: 800; color: var(--primary); text-decoration: none; }
-    .nav-links a { margin-left: 1.5rem; text-decoration: none; color: #555; font-weight: 500; }
-    .nav-links a:hover { color: var(--accent); }
+    .nav-links a { margin-left: 1.5rem; text-decoration: none; color: #4a5568; font-weight: 600; }
+    .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--accent); }
 
-    .content-wrapper { max-width: 900px; margin: 3rem auto; padding: 0 1.5rem; }
+    .content-wrapper { max-width: 860px; margin: 3rem auto; padding: 0 1.5rem; }
     h1 { font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem; }
     h2 { font-size: 1.5rem; color: var(--primary); margin: 2rem 0 0.75rem; }
     p { margin-bottom: 1.25rem; font-size: 1.05rem; color: #374151; }
-    footer { background: var(--primary); color: #fff; padding: 2rem 1.5rem; text-align: center; margin-top: 5rem; }
+    ul { margin-left: 1.5rem; margin-bottom: 1.5rem; color: #374151; }
+    li { margin-bottom: 0.5rem; }
+
+    footer { background: var(--primary); color: #fff; padding: 2.5rem 1.5rem; text-align: center; margin-top: 5rem; }
+    footer p { color: #e2e8f0; font-size: 0.95rem; }
   </style>
 </head>
 <body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <header>
     <div class="nav-container">
-      <a href="index.html" class="logo">EntomoScan</a>
-      <div class="nav-links">
-        <a href="index.html">Identifier Tool</a>
+      <a href="/" class="logo">Free Bug Identifier</a>
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="/">Scanner</a>
         <a href="about.html">About</a>
-        <a href="privacy.html" style="color:var(--accent);">Privacy</a>
-      </div>
+        <a href="privacy.html" aria-current="page">Privacy</a>
+      </nav>
     </div>
   </header>
 
-  <main class="content-wrapper">
-    <h1>Privacy Policy & Photo Security</h1>
-    <p><em>Effective Date: March 2026</em></p>
+  <main class="content-wrapper" id="main-content">
+    <h1>Privacy Policy & On-Device Security</h1>
+    <p><em>Effective Date: October 2026</em></p>
 
-    <p>At EntomoScan, we treat user privacy with absolute seriousness. Unlike commercial identification applications that upload your domestic interior photos to remote cloud servers for behavioral modeling and advertising profiling, EntomoScan guarantees <strong>zero cloud transmission of private photos</strong>.</p>
+    <p>Your privacy is fundamentally respected on <strong>Free Bug Identifier</strong>. Many commercial insect scanning applications silently upload personal household photos to remote servers for machine learning harvesting and ad retargeting. We operate on a strict <strong>zero cloud upload principle</strong>.</p>
 
-    <h2>1. Client-Side Image Execution</h2>
-    <p>When you select or drop a photo into our scanner, the file is parsed exclusively in your local browser sandbox through HTML5 FileAPI and Canvas elements. At no point is the photo transferred to an external database, logged, or indexed by our servers.</p>
+    <h2>1. Purely Local Client-Side Execution</h2>
+    <p>When you select or drop a photo into our scanner, the image is read strictly within your browser’s local sandboxed memory via HTML5 Canvas and File API objects. At no point are your pictures transmitted over the network or saved to remote databases.</p>
 
-    <h2>2. Data We Do Not Collect</h2>
-    <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem; color: #374151;">
-      <li>We do not collect or read EXIF metadata (such as GPS coordinates or camera serial numbers) from your images.</li>
-      <li>We do not require user accounts, emails, telephone numbers, or login credentials to access the full capabilities of our tools.</li>
-      <li>We do not sell user interaction profiles to pest extermination syndicates or advertising exchanges.</li>
+    <h2>2. Data We Never Collect</h2>
+    <ul>
+      <li>No photo uploads, camera telemetry, or EXIF metadata extraction.</li>
+      <li>No user account registration, passwords, email addresses, or phone numbers.</li>
+      <li>No sharing or selling of residential search data to exterminator marketing networks.</li>
     </ul>
 
-    <h2>3. Cookies and Local Storage</h2>
-    <p>We do not use tracking or cross-site tracking cookies. We only use local session storage to retain your diagnostic filter selections during active usage, which resets once your browser session is terminated.</p>
-
-    <h2 id="terms">4. Entomological & Medical Disclaimer</h2>
-    <p>The diagnostic guidance provided by EntomoScan is intended for educational, taxonomical, and non-emergency identification purposes only. If you have been stung or bitten and experience symptoms of anaphylaxis, extreme localized swelling, or severe pain, seek immediate emergency medical care. EntomoScan does not replace clinical physician evaluations.</p>
+    <h2>3. Medical & Safety Disclaimer</h2>
+    <p>The diagnostic recommendations provided by this tool are intended strictly for educational, morphological, and domestic reference purposes. If you or a family member have experienced a painful bite, stinging reaction, or exhibit signs of severe allergic reaction (anaphylaxis), seek immediate clinical medical attention.</p>
   </main>
 
   <footer>
-    <p>&copy; 2026 EntomoScan Biological Project. Committed to zero-footprint web privacy.</p>
+    <p>&copy; Free Bug Identifier. Zero tracking, zero harvesting, 100% private.</p>
   </footer>
+
 </body>
 </html>
