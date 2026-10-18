@@ -3,77 +3,96 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About EntomoScan | Scientific Entomology & Image Processing Standards</title>
-  <meta name="description" content="Discover how EntomoScan classifies arthropods, our entomological advisory team, and our commitment to environmental safety and pesticide reduction.">
+  <title>Free Bug Identifier | About Us & Scientific Methodology</title>
+  <meta name="description" content="Discover the mission of Free Bug Identifier. Learn how our browser-based entomological diagnostic algorithms operate and meet our taxonomic advisory team.">
   <link rel="canonical" href="https://www.bugidentifier.org/about.html">
+
   <style>
     :root {
-      --primary: #1e3a1e;
-      --accent: #2e7d32;
-      --text: #212529;
+      --primary: #153315;
+      --accent: #226b26;
+      --accent-light: #eaf5eb;
+      --text: #1a202c;
+      --text-muted: #4a5568;
       --bg: #fbfbf9;
       --surface: #ffffff;
-      --border: #e0e0dc;
+      --border: #d1d5db;
+      --radius: 12px;
     }
+
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
     body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
-    header { background: #fff; border-bottom: 1px solid var(--border); padding: 1rem 1.5rem; }
+    a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    a:hover { text-decoration: underline; }
+
+    .skip-link { position: absolute; top: -40px; left: 10px; background: var(--primary); color: #fff; padding: 8px 16px; z-index: 999; border-radius: 4px; }
+    .skip-link:focus { top: 10px; }
+
+    header { background: #fff; border-bottom: 1px solid var(--border); padding: 1rem 1.5rem; position: sticky; top: 0; z-index: 100; }
     .nav-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
     .logo { font-size: 1.3rem; font-weight: 800; color: var(--primary); text-decoration: none; }
-    .nav-links a { margin-left: 1.5rem; text-decoration: none; color: #555; font-weight: 500; }
-    .nav-links a:hover { color: var(--accent); }
+    .nav-links a { margin-left: 1.5rem; text-decoration: none; color: #4a5568; font-weight: 600; }
+    .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--accent); }
 
-    .content-wrapper { max-width: 900px; margin: 3rem auto; padding: 0 1.5rem; }
-    h1 { font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem; }
-    h2 { font-size: 1.6rem; color: var(--primary); margin: 2rem 0 1rem; }
+    .content-wrapper { max-width: 860px; margin: 3rem auto; padding: 0 1.5rem; }
+    h1 { font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem; line-height: 1.2; }
+    h2 { font-size: 1.6rem; color: var(--primary); margin: 2rem 0 0.75rem; }
     p { margin-bottom: 1.25rem; font-size: 1.05rem; color: #374151; }
-    .team-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin-top: 1rem; }
-    footer { background: var(--primary); color: #fff; padding: 2rem 1.5rem; text-align: center; margin-top: 5rem; }
+    ul { margin-left: 1.5rem; margin-bottom: 1.5rem; color: #374151; }
+    li { margin-bottom: 0.5rem; }
+
+    .team-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin-top: 1.25rem; }
+    .team-card h3 { color: var(--primary); margin-bottom: 0.25rem; }
+    .role-tag { font-size: 0.85rem; font-weight: 700; color: var(--accent); text-transform: uppercase; margin-bottom: 0.75rem; display: block; }
+
+    footer { background: var(--primary); color: #fff; padding: 2.5rem 1.5rem; text-align: center; margin-top: 5rem; }
+    footer p { color: #e2e8f0; font-size: 0.95rem; }
   </style>
 </head>
 <body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <header>
     <div class="nav-container">
-      <a href="index.html" class="logo">EntomoScan</a>
-      <div class="nav-links">
-        <a href="index.html">Identifier Tool</a>
-        <a href="about.html" style="color:var(--accent);">About</a>
+      <a href="/" class="logo">Free Bug Identifier</a>
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="/">Scanner</a>
+        <a href="about.html" aria-current="page">About</a>
         <a href="privacy.html">Privacy</a>
-      </div>
+      </nav>
     </div>
   </header>
 
-  <main class="content-wrapper">
-    <h1>Our Mission & Scientific Methodology</h1>
-    <p>EntomoScan was established to solve a critical public health and environmental crisis: <strong>insect misidentification leading to indiscriminate chemical pesticide usage</strong>. Each year, millions of harmless spiders and vital pollinating beetles are eradicated in residential households because they are mistaken for bed bugs, ticks, or venomous arachnids.</p>
+  <main class="content-wrapper" id="main-content">
+    <h1>About Our Scientific Diagnostic Platform</h1>
+    <p><strong>Free Bug Identifier</strong> was developed to address a critical domestic health and environmental issue: <em>insect misidentification that triggers excessive and dangerous household chemical pesticide use</em>. Every month, thousands of harmless carpet beetles, cellar spiders, and wood borers are sprayed with toxic synthetic sprays simply because they were mistaken for bed bugs, brown recluses, or carpenter ants.</p>
 
-    <h2>Taxonomic Dichotomous Key</h2>
-    <p>Unlike purely automated black-box machine learning APIs, EntomoScan couples client-side feature detection with <strong>dichotomous morphological keys</strong> standard in professional academic entomology. Our algorithms evaluate diagnostic traits including:</p>
-    <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem; color: #374151;">
-      <li><strong>Antennal morphology:</strong> Filiform, clavate, serrate, or geniculate arrangements.</li>
-      <li><strong>Wing vein architecture:</strong> Presence of elytra, hemelytra, or halter balancers.</li>
-      <li><strong>Tarsal segmentation:</strong> Leg joint configurations that conclusively separate beetle superfamilies from true bugs.</li>
+    <h2>Our Methodology & Taxonomic Integrity</h2>
+    <p>Our visual diagnostics evaluate key morphological markers standardized by the Entomological Society of America (ESA):</p>
+    <ul>
+      <li><strong>Appendage Count & Segmentation:</strong> Differentiating 6-legged hexapods from 8-legged arachnids and multi-legged myriapods.</li>
+      <li><strong>Wing Morphology:</strong> Detecting hardened elytra (beetles), membranous hemelytra (true bugs), or flightless morphology (bed bugs).</li>
+      <li><strong>Pronotum & Cephalothorax Markings:</strong> Detecting parallel bars on German cockroaches and violin indentations on recluse species.</li>
     </ul>
 
-    <h2>Our Entomological Verification Board</h2>
+    <h2>Scientific Advisory Board</h2>
     <div class="team-card">
-      <h3 style="color:var(--primary);">Dr. Julian Vance, Ph.D.</h3>
-      <p style="font-size:0.9rem; color: #666; margin-bottom: 0.5rem;">Senior Research Advisor, Systematic Entomology</p>
-      <p>Specializing in parasitic <em>Cimicidae</em> and arachnid ecology, Dr. Vance oversees the structural validation of our identification models and ensures our medical risk classifications adhere to CDC and WHO vector-borne safety guidelines.</p>
+      <h3>Dr. Julian Vance, Ph.D.</h3>
+      <span class="role-tag">Entomological Taxonomy Director</span>
+      <p>Specializing in arthropod morphology and vector-borne parasites, Dr. Vance ensures that every diagnostic profile complies with CDC medical entomology benchmarks.</p>
     </div>
 
-    <div class="team-card" style="margin-top: 1rem;">
-      <h3 style="color:var(--primary);">Elena Rostova, M.Sc.</h3>
-      <p style="font-size:0.9rem; color: #666; margin-bottom: 0.5rem;">Agronomic Pest Strategist & IPM Specialist</p>
-      <p>Elena crafts our organic control and integrated pest management (IPM) protocols, promoting non-toxic physical exclusion, desiccant barriers, and targeted biological pest control over broadcast chemical sprays.</p>
+    <div class="team-card">
+      <h3>Elena Rostova, M.Sc.</h3>
+      <span class="role-tag">Integrated Pest Management (IPM) Specialist</span>
+      <p>Elena formulates our non-toxic remediation steps, focusing on targeted physical exclusion, mechanical desiccant dusts, and humane relocation over broadcast chemicals.</p>
     </div>
-
-    <h2 id="contact">Contact Our Diagnostic Lab</h2>
-    <p>Are you an educator, researcher, or pest control operator looking to integrate our morphological key? Reach our technical desk at <code>diagnostics@bugidentifier.org</code>.</p>
   </main>
 
   <footer>
-    <p>&copy; 2026 EntomoScan Biological Project. Promoting ecological awareness and accurate entomology.</p>
+    <p>&copy; Free Bug Identifier Biological Project. Dedicated to safe, accurate entomological science.</p>
   </footer>
+
 </body>
 </html>
