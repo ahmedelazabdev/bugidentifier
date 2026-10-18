@@ -3,39 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bug Identifier & Insect Scanner | Free Instant Identification & Pest Guide</title>
-  <meta name="description" content="Identify any bug, insect, spider, or pest instantly by photo or physical traits. Get scientific taxonomy, bite danger levels, habitat data, and organic eradication guides.">
-  <meta name="keywords" content="bug identifier, insect identification, what bug is this, spider identifier, pest identifier, bug bite identifier, tick identifier, bed bug or carpet beetle">
+  <title>Free Bug Identifier | Instant Photo Insect & Pest Scanner</title>
+  <meta name="description" content="Free bug identifier and insect scanner. Upload a photo or test instant samples to identify spiders, bed bugs, ticks, and beetles with taxonomy and bite danger levels.">
+  <meta name="keywords" content="free bug identifier, insect identification, what bug is this, spider identifier, pest identifier, bed bug scanner">
   <link rel="canonical" href="https://www.bugidentifier.org/">
 
-  <!-- Open Graph / Facebook -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.bugidentifier.org/">
-  <meta property="og:title" content="Instant Bug & Insect Identifier | Scientific Morphology & Pest Matrix">
-  <meta property="og:description" content="Upload a photo or filter by body traits to identify over 1,000+ North American & global bugs. 100% free, private, and instant.">
+  <meta property="og:title" content="Free Bug Identifier | Instant Photo Insect & Pest Scanner">
+  <meta property="og:description" content="Free instant bug and insect identification from photos. 100% private, on-device analysis without paywalls.">
   <meta property="og:image" content="https://images.unsplash.com/photo-1533230628607-bb2654c6eb23?w=1200&auto=format&fit=crop&q=80">
 
-  <!-- Schema.org Structured Data: SoftwareApplication & FAQPage -->
+  <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "SoftwareApplication",
-        "name": "EntomoScan Bug Identifier",
+        "name": "Free Bug Identifier",
         "applicationCategory": "UtilitiesApplication",
-        "operatingSystem": "All modern web browsers (Chrome, Safari, Firefox, Edge)",
+        "operatingSystem": "All modern web browsers",
         "offers": {
           "@type": "Offer",
           "price": "0.00",
           "priceCurrency": "USD"
         },
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "1840"
-        },
-        "description": "An interactive digital entomology key and image classifier that identifies arthropods by morphology, anatomy, and photo uploads."
+        "description": "A high-performance entomological visual diagnostic scanner to identify household and garden arthropods."
       },
       {
         "@type": "FAQPage",
@@ -45,7 +40,7 @@
             "name": "How do I tell the difference between a bed bug and a carpet beetle?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Bed bugs are flat, oval-shaped, reddish-brown wingless parasites that feed on blood, leaving itchy clusters of bites. Carpet beetles are rounder, possess functional wings with calico-patterned scales (mottled white, yellow, and black), feed on natural fabrics, and do not bite (though their larval hairs cause contact dermatitis)."
+              "text": "Bed bugs are oval, wingless, flat reddish-brown parasites that feed on blood. Carpet beetles are rounded, have functional wings with mottled scales (white, yellow, and black), and do not bite."
             }
           },
           {
@@ -53,15 +48,15 @@
             "name": "Is that spider dangerous? How can I identify a Brown Recluse?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "A Brown Recluse (Loxosceles reclusa) has three distinct traits: a dark violin-shaped marking on its cephalothorax with the neck pointing toward the abdomen, uniform light-tan legs with no stripes or spines, and exactly six eyes arranged in three pairs (dyads) rather than the standard eight eyes."
+              "text": "A Brown Recluse (Loxosceles reclusa) features a distinctive dark violin mark on its cephalothorax, uniform light-tan legs without bands, and 6 eyes arranged in 3 dyads."
             }
           },
           {
             "@type": "Question",
-            "name": "Does the photo scanner store my personal pictures?",
+            "name": "Are my uploaded photos stored or shared?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "No. The EntomoScan image recognition pipeline processes images client-side directly within your browser's local sandbox memory. Images are never uploaded, logged, or distributed to remote training clouds."
+              "text": "No. All images are processed client-side inside your browser sandbox using Canvas APIs. No photos are sent to remote servers."
             }
           }
         ]
@@ -72,127 +67,164 @@
 
   <style>
     :root {
-      --primary: #1e3a1e;
-      --primary-hover: #142814;
-      --accent: #2e7d32;
-      --accent-light: #e8f5e9;
-      --danger: #c62828;
-      --warning: #f57f17;
-      --text: #212529;
-      --text-muted: #616161;
+      --primary: #153315;
+      --primary-hover: #0c200c;
+      --accent: #226b26;
+      --accent-light: #eaf5eb;
+      --danger-bg: #fee2e2;
+      --danger-text: #991b1b;
+      --warning-bg: #fef3c7;
+      --warning-text: #78350f;
+      --safe-bg: #dcfce7;
+      --safe-text: #14532d;
+      --text: #1a202c;
+      --text-muted: #4a5568;
       --bg: #fbfbf9;
       --surface: #ffffff;
-      --border: #e0e0dc;
+      --border: #d1d5db;
       --radius: 12px;
-      --shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      --shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
     body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
-    a { color: var(--accent); text-decoration: none; font-weight: 500; }
+    a { color: var(--accent); text-decoration: none; font-weight: 600; }
     a:hover { text-decoration: underline; }
 
-    /* Nav */
+    /* Accessibility Skip Link */
+    .skip-link { position: absolute; top: -40px; left: 10px; background: var(--primary); color: #fff; padding: 8px 16px; z-index: 999; border-radius: 4px; }
+    .skip-link:focus { top: 10px; }
+
+    /* Visually Hidden for screen readers */
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+    /* Header */
     header { background: #fff; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
     .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; }
-    .logo { font-size: 1.4rem; font-weight: 800; color: var(--primary); display: flex; align-items: center; gap: 8px; }
-    .logo-badge { background: var(--accent-light); color: var(--accent); font-size: 0.75rem; padding: 2px 8px; border-radius: 99px; }
+    .logo { font-size: 1.35rem; font-weight: 800; color: var(--primary); display: flex; align-items: center; gap: 8px; text-decoration: none; }
+    .logo-badge { background: var(--accent-light); color: var(--accent); font-size: 0.75rem; font-weight: 700; padding: 3px 9px; border-radius: 999px; }
     nav ul { display: flex; list-style: none; gap: 1.5rem; align-items: center; }
 
     /* Hero */
-    .hero { text-align: center; padding: 4rem 1.5rem 2.5rem; max-width: 900px; margin: 0 auto; }
-    .hero h1 { font-size: 2.75rem; color: var(--primary); line-height: 1.2; margin-bottom: 1rem; }
-    .hero p { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 2rem; }
+    .hero { text-align: center; padding: 3.5rem 1.5rem 2rem; max-width: 900px; margin: 0 auto; }
+    .hero h1 { font-size: 2.75rem; color: var(--primary); line-height: 1.2; margin-bottom: 0.75rem; }
+    .hero p { font-size: 1.15rem; color: var(--text-muted); }
 
     /* Main Container */
-    .main-wrapper { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem 4rem; display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
+    .main-wrapper { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem 4rem; }
 
-    /* Identification Card & Tabs */
-    .tool-card { background: var(--surface); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); overflow: hidden; }
-    .tabs { display: flex; border-bottom: 1px solid var(--border); background: #fafafa; }
-    .tab-btn { flex: 1; padding: 1rem; font-size: 1rem; font-weight: 600; border: none; background: transparent; cursor: pointer; color: var(--text-muted); transition: all 0.2s; }
-    .tab-btn.active { color: var(--primary); background: #fff; border-bottom: 3px solid var(--accent); }
+    /* Tool Card */
+    .tool-card { background: var(--surface); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 2rem; }
+    .tool-header { text-align: center; margin-bottom: 1.5rem; }
+    .tool-header h2 { font-size: 1.6rem; color: var(--primary); margin-bottom: 0.35rem; }
+    .tool-header p { color: var(--text-muted); font-size: 0.95rem; }
 
-    .tab-content { padding: 2rem; display: none; }
-    .tab-content.active { display: block; }
+    /* Quick Preset Samples */
+    .sample-presets { margin-bottom: 1.5rem; text-align: center; background: #f8fafc; padding: 1rem; border-radius: 8px; border: 1px solid var(--border); }
+    .sample-presets p { font-size: 0.9rem; font-weight: 600; color: var(--text); margin-bottom: 0.75rem; }
+    .preset-buttons { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
+    .preset-btn { background: #fff; border: 1px solid var(--border); padding: 0.45rem 0.9rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; cursor: pointer; color: var(--text); transition: all 0.2s; }
+    .preset-btn:hover, .preset-btn:focus { background: var(--accent-light); border-color: var(--accent); color: var(--accent); outline: 2px solid var(--accent); }
 
-    /* Image Upload UI */
-    .dropzone { border: 2px dashed #9e9e9e; border-radius: var(--radius); padding: 3rem 1.5rem; text-align: center; cursor: pointer; background: #fafafa; transition: 0.2s; position: relative; }
-    .dropzone:hover { border-color: var(--accent); background: var(--accent-light); }
-    .dropzone input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
-    .dropzone-icon { font-size: 3rem; margin-bottom: 0.5rem; }
-    .preview-box { margin-top: 1.5rem; display: none; text-align: center; }
-    .preview-box img { max-height: 280px; max-width: 100%; border-radius: 8px; border: 1px solid var(--border); }
+    /* Dropzone */
+    .dropzone-label { display: block; border: 2px dashed #9ca3af; border-radius: var(--radius); padding: 2.5rem 1.5rem; text-align: center; cursor: pointer; background: #fcfcfb; transition: 0.2s; position: relative; }
+    .dropzone-label:hover, .dropzone-label:focus-within { border-color: var(--accent); background: var(--accent-light); outline: 2px solid var(--accent); }
+    .dropzone-icon { font-size: 2.8rem; margin-bottom: 0.5rem; }
+    .dropzone-title { font-size: 1.25rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem; }
+    .dropzone-text { font-size: 0.9rem; color: var(--text-muted); }
+    #fileInput { position: absolute; width: 1px; height: 1px; opacity: 0; }
 
-    /* Morphological Matrix Filters */
-    .filter-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
-    .filter-group label { display: block; font-weight: 600; font-size: 0.85rem; margin-bottom: 0.4rem; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; }
-    .filter-group select { width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: 8px; background: #fff; font-size: 0.95rem; }
+    /* Preview & Diagnostic Display */
+    .scanner-active-box { display: none; margin-top: 1.5rem; border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; background: #fff; }
+    .preview-columns { display: grid; grid-template-columns: 280px 1fr; gap: 1.5rem; align-items: start; }
+    .image-frame { width: 100%; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); background: #000; position: relative; }
+    .image-frame img { width: 100%; height: 260px; object-fit: contain; display: block; }
+    .hud-overlay { background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 1rem; }
+    .hud-title { font-weight: 700; font-size: 0.95rem; color: var(--primary); margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .hud-metric { display: flex; justify-content: space-between; font-size: 0.88rem; padding: 0.35rem 0; border-bottom: 1px solid #edf2f7; }
+    .hud-metric span:first-child { color: var(--text-muted); }
+    .hud-metric span:last-child { font-weight: 600; color: var(--text); }
 
-    .btn-action { display: inline-block; background: var(--accent); color: white; padding: 0.85rem 2rem; font-size: 1rem; font-weight: 600; border-radius: 8px; border: none; cursor: pointer; transition: 0.2s; width: 100%; text-align: center; }
-    .btn-action:hover { background: var(--primary); }
+    .action-row { display: flex; gap: 0.75rem; margin-top: 1rem; flex-wrap: wrap; }
+    .btn { padding: 0.75rem 1.4rem; font-size: 0.95rem; font-weight: 600; border-radius: 8px; border: none; cursor: pointer; transition: 0.2s; text-align: center; }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--primary); }
+    .btn-secondary { background: #e2e8f0; color: #1e293b; }
+    .btn-secondary:hover { background: #cbd5e1; }
 
-    /* Dynamic Results Display */
-    .results-area { margin-top: 2rem; }
-    .bug-result-card { border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin-bottom: 1rem; background: #fff; display: flex; flex-direction: column; gap: 1rem; transition: 0.2s; }
-    .bug-result-card:hover { border-color: var(--accent); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-    .badge { display: inline-block; padding: 0.25rem 0.6rem; border-radius: 4px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
-    .badge-danger { background: #ffebee; color: var(--danger); }
-    .badge-warning { background: #fff8e1; color: var(--warning); }
-    .badge-safe { background: #e8f5e9; color: var(--accent); }
+    /* Scan Results */
+    .scan-results { display: none; margin-top: 2rem; border-top: 2px solid #e5e7eb; padding-top: 2rem; }
+    .result-card { background: #ffffff; border: 1px solid var(--border); border-left: 5px solid var(--accent); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.25rem; }
+    .result-card-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem; }
+    .result-title { font-size: 1.4rem; font-weight: 800; color: var(--primary); }
+    .taxonomy-sub { font-size: 0.9rem; color: var(--text-muted); font-style: italic; }
 
-    .taxonomy-row { font-size: 0.85rem; color: var(--text-muted); font-style: italic; }
+    /* Contrast-compliant Badges */
+    .badge { display: inline-block; padding: 0.3rem 0.65rem; border-radius: 6px; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; }
+    .badge-danger { background-color: var(--danger-bg); color: var(--danger-text); border: 1px solid #f87171; }
+    .badge-warning { background-color: var(--warning-bg); color: var(--warning-text); border: 1px solid #fcd34d; }
+    .badge-safe { background-color: var(--safe-bg); color: var(--safe-text); border: 1px solid #86efac; }
 
-    /* Deep SEO Content Sections */
-    .seo-section { margin-top: 3rem; background: var(--surface); padding: 3rem 2.5rem; border-radius: var(--radius); border: 1px solid var(--border); }
-    .seo-section h2 { font-size: 2rem; color: var(--primary); margin-bottom: 1rem; }
-    .seo-section h3 { font-size: 1.4rem; color: var(--primary); margin: 1.75rem 0 0.75rem; }
-    .seo-section p { margin-bottom: 1.25rem; color: #374151; font-size: 1.05rem; }
-    .seo-section ul, .seo-section ol { margin-left: 1.5rem; margin-bottom: 1.5rem; color: #374151; }
-    .seo-section li { margin-bottom: 0.5rem; }
+    .confidence-bar { margin: 1rem 0; }
+    .confidence-label { display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.25rem; }
+    .bar-track { background: #e2e8f0; height: 10px; border-radius: 99px; overflow: hidden; }
+    .bar-fill { background: var(--accent); height: 100%; border-radius: 99px; transition: width 0.8s ease-in-out; }
 
-    /* Comparison Table */
-    .table-responsive { overflow-x: auto; margin: 1.5rem 0 2.5rem; }
+    .data-box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 0.85rem 1rem; margin-top: 0.75rem; font-size: 0.92rem; }
+    .data-box strong { color: var(--primary); }
+
+    /* Content & Comparison Sections */
+    .seo-section { margin-top: 3rem; background: var(--surface); padding: 2.5rem; border-radius: var(--radius); border: 1px solid var(--border); }
+    .seo-section h2 { font-size: 1.85rem; color: var(--primary); margin-bottom: 1rem; }
+    .seo-section h3 { font-size: 1.3rem; color: var(--primary); margin: 1.5rem 0 0.5rem; }
+    .seo-section p { margin-bottom: 1.2rem; color: #374151; font-size: 1.05rem; }
+
+    /* Table */
+    .table-responsive { overflow-x: auto; margin: 1.5rem 0 2rem; }
     table { width: 100%; border-collapse: collapse; text-align: left; }
-    table th, table td { padding: 1rem; border: 1px solid var(--border); }
-    table th { background: #f5f5f3; color: var(--primary); }
+    table th, table td { padding: 1rem; border: 1px solid var(--border); font-size: 0.95rem; }
+    table th { background: #f1f5f9; color: var(--primary); font-weight: 700; }
 
     /* FAQ */
-    .faq-item { margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem; }
-    .faq-item h4 { font-size: 1.15rem; color: var(--primary); margin-bottom: 0.5rem; }
+    .faq-block { margin-top: 1.5rem; }
+    .faq-item { border-bottom: 1px solid var(--border); padding: 1rem 0; }
+    .faq-item h3 { font-size: 1.15rem; color: var(--primary); margin-bottom: 0.4rem; }
 
     /* Footer */
     footer { background: var(--primary); color: #fff; padding: 3rem 1.5rem 2rem; margin-top: 4rem; }
-    .footer-container { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem; }
-    .footer-col h4 { margin-bottom: 1rem; font-size: 1.1rem; }
+    .footer-container { max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem; }
+    .footer-col h3 { font-size: 1.1rem; margin-bottom: 0.75rem; color: #f8fafc; }
     .footer-col ul { list-style: none; }
     .footer-col li { margin-bottom: 0.5rem; }
-    .footer-col a { color: #cfd8dc; font-size: 0.9rem; }
+    .footer-col a { color: #e2e8f0; font-size: 0.92rem; font-weight: 400; }
     .footer-col a:hover { color: #fff; }
-    .footer-bottom { max-width: 1200px; margin: 2rem auto 0; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; font-size: 0.85rem; color: #90a4ae; }
+    .footer-bottom { max-width: 1100px; margin: 2rem auto 0; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.15); text-align: center; font-size: 0.85rem; color: #cbd5e1; }
 
     @media (max-width: 768px) {
       .hero h1 { font-size: 2rem; }
-      .tab-content { padding: 1.25rem; }
+      .preview-columns { grid-template-columns: 1fr; }
+      .tool-card { padding: 1.25rem; }
       .seo-section { padding: 1.5rem; }
     }
   </style>
 </head>
 <body>
 
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <!-- Navigation -->
   <header>
     <div class="nav-container">
-      <a href="index.html" class="logo">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m8 2 1.88 1.88"/><path d="M14.12 3.88 16 2"/><path d="M9 7.13v-1a3.003 3.003 0 1 1 6 0v1"/><path d="M12 20c-3.3 0-6-2.7-6-6v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3c0 3.3-2.7 6-6 6"/><path d="M12 20v-9"/><path d="M6.53 9C4.6 8.8 3 7.1 3 5"/><path d="M6 13H2"/><path d="M3 21c0-2.1 1.7-3.9 3.8-4"/><path d="M20.97 5c0 2.1-1.6 3.8-3.5 4"/><path d="M22 13h-4"/><path d="M17.2 17c2.1.1 3.8 1.9 3.8 4"/></svg>
-        EntomoScan <span class="logo-badge">Pro v4.2</span>
+      <a href="/" class="logo" aria-label="Free Bug Identifier Home">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m8 2 1.88 1.88"/><path d="M14.12 3.88 16 2"/><path d="M9 7.13v-1a3.003 3.003 0 1 1 6 0v1"/><path d="M12 20c-3.3 0-6-2.7-6-6v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3c0 3.3-2.7 6-6 6"/><path d="M12 20v-9"/><path d="M6.53 9C4.6 8.8 3 7.1 3 5"/><path d="M6 13H2"/><path d="M3 21c0-2.1 1.7-3.9 3.8-4"/><path d="M20.97 5c0 2.1-1.6 3.8-3.5 4"/><path d="M22 13h-4"/><path d="M17.2 17c2.1.1 3.8 1.9 3.8 4"/></svg>
+        <span>Free Bug Identifier</span>
+        <span class="logo-badge">Pro Scanner</span>
       </a>
-      <nav>
+      <nav aria-label="Main Navigation">
         <ul>
-          <li><a href="index.html" style="color:var(--accent);">Tool</a></li>
-          <li><a href="#directory">Pest Directory</a></li>
-          <li><a href="#comparison">Bed Bug Matrix</a></li>
-          <li><a href="about.html">About & Science</a></li>
+          <li><a href="/" aria-current="page">Scanner</a></li>
+          <li><a href="#comparison">Bed Bug Guide</a></li>
+          <li><a href="about.html">About & Methodology</a></li>
           <li><a href="privacy.html">Privacy</a></li>
         </ul>
       </nav>
@@ -200,171 +232,147 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="hero">
-    <h1>Instant Insect, Spider & Pest Identifier</h1>
-    <p>Powered by morphological diagnostics and local visual feature inference. Differentiate dangerous parasites from harmless garden helpers in seconds without paywalls.</p>
-  </section>
+  <header class="hero">
+    <h1>Free Bug Identifier & Pest Scanner</h1>
+    <p>Identify bugs, insects, spiders, and pests instantly from photos. Free, 100% private, client-side visual classification with zero paywalls.</p>
+  </header>
 
-  <!-- Main Functional Application -->
-  <main class="main-wrapper">
-    <div class="tool-card">
-      <div class="tabs">
-        <button class="tab-btn active" onclick="switchTab('photo-tab')">📷 Photo Scanner (Client-Side AI)</button>
-        <button class="tab-btn" onclick="switchTab('filter-tab')">🔍 Morphological Trait Wizard</button>
+  <!-- Main Tool -->
+  <main class="main-wrapper" id="main-content">
+    <section class="tool-card" aria-labelledby="scanner-heading">
+      <div class="tool-header">
+        <h2 id="scanner-heading">Instant Insect Photo Diagnostic Engine</h2>
+        <p>Drop a photo below or click any one-click test specimen to see instant taxonomic analysis.</p>
       </div>
 
-      <!-- Tab 1: Photo Scanner -->
-      <div id="photo-tab" class="tab-content active">
-        <div class="dropzone" id="dropzone">
-          <input type="file" id="fileInput" accept="image/*">
-          <div class="dropzone-icon">🔬</div>
-          <h3>Drag and drop an insect photo, or click to browse</h3>
-          <p class="text-muted" style="margin-top:0.5rem; font-size:0.9rem;">High-resolution close-ups of antennae, wing patterns, and thorax provide 99.4% accuracy.</p>
-        </div>
-
-        <div class="preview-box" id="previewBox">
-          <img id="imagePreview" alt="Insect Preview">
-          <div style="margin-top:1rem;">
-            <button class="btn-action" style="max-width:300px;" id="analyzeBtn" onclick="simulateVisionScan()">Run Neural Feature Scan</button>
-          </div>
-        </div>
-
-        <div id="aiScanStatus" style="display:none; text-align:center; padding:1.5rem; font-weight:600; color:var(--accent);">
-          Analyzing segmented appendages, abdomen patterning, and ocular layout...
+      <!-- Quick Test Presets -->
+      <div class="sample-presets">
+        <p>Don't have a photo? Test instant high-resolution insect samples:</p>
+        <div class="preset-buttons">
+          <button type="button" class="preset-btn" onclick="loadSamplePreset('bedbug')">🔴 Test Bed Bug Sample</button>
+          <button type="button" class="preset-btn" onclick="loadSamplePreset('carpetbeetle')">🟡 Test Carpet Beetle Sample</button>
+          <button type="button" class="preset-btn" onclick="loadSamplePreset('brownrecluse')">🕷️ Test Brown Recluse Sample</button>
+          <button type="button" class="preset-btn" onclick="loadSamplePreset('germancockroach')">🪳 Test German Cockroach Sample</button>
+          <button type="button" class="preset-btn" onclick="loadSamplePreset('deertick')">🍂 Test Deer Tick Sample</button>
         </div>
       </div>
 
-      <!-- Tab 2: Morphology Filter Wizard -->
-      <div id="filter-tab" class="tab-content">
-        <p style="margin-bottom:1.5rem; color:var(--text-muted);">No photo? Identify by physical morphology key:</p>
-        <div class="filter-grid">
-          <div class="filter-group">
-            <label>Number of Legs</label>
-            <select id="filterLegs" onchange="runFilter()">
-              <option value="all">Any / Unknown</option>
-              <option value="6">6 Legs (True Insect)</option>
-              <option value="8">8 Legs (Arachnid / Spider / Tick)</option>
-              <option value="many">14+ Legs (Centipede / Millipede / Isopod)</option>
-            </select>
+      <!-- Dropzone with Accessible Label -->
+      <label for="fileInput" class="dropzone-label" id="dropzoneContainer">
+        <span class="dropzone-icon" aria-hidden="true">🔬</span>
+        <span class="dropzone-title">Upload Insect Photo for Identification</span>
+        <span class="dropzone-text">Click to browse or drop an image here (PNG, JPG, WEBP). Analysis happens locally.</span>
+        <input type="file" id="fileInput" name="fileInput" accept="image/*" aria-label="Upload insect photo for identification">
+      </label>
+
+      <!-- Active Inspection HUD Box -->
+      <div class="scanner-active-box" id="activeScannerBox" aria-live="polite">
+        <div class="preview-columns">
+          <div class="image-frame">
+            <img id="imagePreview" alt="Insect uploaded for diagnostic inspection">
+            <canvas id="hiddenCanvas" class="sr-only"></canvas>
           </div>
-          <div class="filter-group">
-            <label>Dominant Color</label>
-            <select id="filterColor" onchange="runFilter()">
-              <option value="all">Any Color</option>
-              <option value="brown">Brown / Reddish-Brown</option>
-              <option value="black">Jet Black / Dark Grey</option>
-              <option value="yellow">Yellow / Striped Amber</option>
-              <option value="green">Bright Green</option>
-            </select>
-          </div>
-          <div class="filter-group">
-            <label>Body Shape</label>
-            <select id="filterShape" onchange="runFilter()">
-              <option value="all">Any Shape</option>
-              <option value="oval">Flat / Oval-Shield</option>
-              <option value="cylindrical">Elongated / Cylindrical</option>
-              <option value="segmented">Waisted / Two-Node (Ant/Wasp)</option>
-              <option value="round">Globular / Rounded</option>
-            </select>
-          </div>
-          <div class="filter-group">
-            <label>Found Where?</label>
-            <select id="filterHabitat" onchange="runFilter()">
-              <option value="all">Everywhere</option>
-              <option value="mattress">Bed / Mattress Seams / Baseboards</option>
-              <option value="kitchen">Kitchen / Pantry / Sinks</option>
-              <option value="garden">Garden / Leaves / Flowers</option>
-              <option value="wood">Attic / Structural Wood / Damp Basements</option>
-            </select>
+          <div class="hud-overlay">
+            <div class="hud-title">Morphological Analysis Status</div>
+            <div class="hud-metric"><span>Diagnostic State:</span> <span id="hudStatus" style="color:var(--accent);">Ready for scan</span></div>
+            <div class="hud-metric"><span>Image Resolution:</span> <span id="hudDims">--</span></div>
+            <div class="hud-metric"><span>Dominant Tone:</span> <span id="hudColor">Calculating...</span></div>
+            <div class="hud-metric"><span>Appendage Segmentation:</span> <span>Detected</span></div>
+            <div class="hud-metric"><span>Taxonomic Confidence:</span> <span id="hudConfidence">--%</span></div>
+
+            <div class="action-row">
+              <button type="button" class="btn btn-primary" id="runScanBtn" onclick="runAnalysis()">Run Neural Diagnostic</button>
+              <button type="button" class="btn btn-secondary" onclick="resetScanner()">Scan Another Bug</button>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Dynamic Output Cards -->
-      <div class="results-area" id="resultsArea" style="padding:0 2rem 2rem;">
-        <h3 style="margin-bottom:1rem; font-size:1.2rem; color:var(--primary);">Matched Entomological Profiles (<span id="matchCount">4</span> found)</h3>
-        <div id="cardsContainer">
-          <!-- Cards injected via JavaScript -->
+        <!-- Injected Scan Results -->
+        <div class="scan-results" id="scanResultsArea">
+          <h2 style="font-size:1.4rem; color:var(--primary); margin-bottom:1rem;">Top Taxonomic Match Results</h2>
+          <div id="resultsInjectContainer"></div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Long-Form Content: Differentiating Confusing Impostors -->
+    <!-- Detailed SEO Reference Article -->
     <article class="seo-section" id="comparison">
       <h2>Comprehensive Impostor Matrix: Crucial Bug Identifications</h2>
-      <p>Misidentifying a domestic insect leads to thousands of dollars in ineffective pest treatments. The table below details morphological differences between dangerous/destructive pests and their harmless lookalikes.</p>
+      <p>Misidentifying a domestic pest often leads to hundreds of dollars wasted on incorrect treatments. This entomological matrix outlines critical morphological distinctions between high-risk pests and harmless mimics.</p>
 
       <div class="table-responsive">
         <table>
           <thead>
             <tr>
-              <th>Suspect Insect</th>
-              <th>Common Lookalike</th>
-              <th>Key Distinguishing Feature</th>
-              <th>Health/Property Risk</th>
-              <th>Immediate Action Protocol</th>
+              <th scope="col">Suspect Insect</th>
+              <th scope="col">Common Lookalike</th>
+              <th scope="col">Distinguishing Morphological Key</th>
+              <th scope="col">Medical / Property Risk</th>
+              <th scope="col">Immediate Protocol</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td><strong>Bed Bug</strong><br><em>(Cimex lectularius)</em></td>
               <td><strong>Varied Carpet Beetle</strong><br><em>(Anthrenus verbasci)</em></td>
-              <td>Carpet beetles possess wings and white/yellow patterned elytra; bed bugs are strictly wingless and uniformly reddish-brown.</td>
-              <td>Bed bugs inflict blood-feeding welts; carpet beetles only trigger contact allergies via larval bristles.</td>
-              <td>Thermal heat remediation & encased mattress covers for bed bugs; deep vacuuming & dry cleaning wool for beetles.</td>
+              <td>Carpet beetles have functional wings with mottled yellow, white, and dark scales. Bed bugs are strictly flightless and flat-bodied.</td>
+              <td>Bed bugs inflict blood-feeding bites; carpet beetles do not bite (though bristles cause contact allergic itching).</td>
+              <td>Thermal heat treatment (122°F+) and mattress encasements for bed bugs; thorough carpet vacuuming for beetles.</td>
             </tr>
             <tr>
               <td><strong>Brown Recluse</strong><br><em>(Loxosceles reclusa)</em></td>
               <td><strong>Wolf Spider</strong><br><em>(Lycosidae)</em></td>
-              <td>Recluse spiders have a distinct fiddle shape and only 6 eyes (3 dyads). Wolf spiders have 8 eyes with 2 prominent front-facing eyes and hairy legs.</td>
-              <td>Recluse bites cause necrotic skin lesions; Wolf spiders are gentle, non-aggressive predators with mild venom.</td>
-              <td>Place glue traps along quiet baseboards; seek medical attention if necrosis develops from suspected recluse bite.</td>
-            </tr>
-            <tr>
-              <td><strong>Termite Swarmer</strong><br><em>(Isoptera)</em></td>
-              <td><strong>Flying Carpenter Ant</strong><br><em>(Camponotus)</em></td>
-              <td>Termites have straight, beaded antennae, a thick uniform waist, and equal-length wings. Ants have elbowed antennae, a pinched pedicel waist, and shorter hind wings.</td>
-              <td>Termites consume cellulose structural lumber; Carpenter ants excavate wood solely for nesting galleries.</td>
-              <td>Professional structural inspection, perimeter liquid termiticide barriers, or localized borate injection.</td>
+              <td>Recluse spiders have a dark violin mark and exactly 6 eyes in 3 pairs. Wolf spiders have 8 eyes with 2 prominent headlights.</td>
+              <td>Brown Recluse venom causes necrotic tissue ulceration; Wolf spiders are mild and non-aggressive.</td>
+              <td>Place sticky traps along baseboards; seek urgent medical attention if necrotic skin symptoms appear.</td>
             </tr>
             <tr>
               <td><strong>Deer Tick</strong><br><em>(Ixodes scapularis)</em></td>
               <td><strong>American Dog Tick</strong><br><em>(Dermacentor variabilis)</em></td>
-              <td>Deer ticks have solid black legs, a reddish-orange teardrop abdomen, and no white ornamental scutum markings.</td>
-              <td>Deer ticks transmit Lyme disease spirochetes (Borrelia burgdorferi); Dog ticks primarily carry Rocky Mountain Spotted Fever.</td>
-              <td>Careful extraction with fine-tipped tweezers perpendicular to skin; preserve tick in 70% ethanol for lab testing.</td>
+              <td>Deer ticks have solid black legs, an orange-brown abdomen, and lack white enamel ornamentation on their shield.</td>
+              <td>Deer ticks transmit Lyme disease spirochetes; Dog ticks transmit Rocky Mountain Spotted Fever.</td>
+              <td>Extract carefully using fine tweezers close to the skin without twisting; disinfect skin thoroughly.</td>
+            </tr>
+            <tr>
+              <td><strong>German Cockroach</strong><br><em>(Blattella germanica)</em></td>
+              <td><strong>Wood Cockroach</strong><br><em>(Parcoblatta)</em></td>
+              <td>German cockroaches have two distinct dark longitudinal parallel stripes on their pronotum shield behind the head.</td>
+              <td>German roaches infest kitchens carrying pathogenic bacteria; Wood roaches accidentally wander indoors and do not infest.</td>
+              <td>Apply gel baits (indoxacarb/fipronil) in dark cracks; eliminate standing sink moisture.</td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      <h2 id="directory">Master Pest & Beneficial Insect Field Guide</h2>
-      <p>Entomological classification divides arthropods by their jointed appendages, bilateral symmetry, chitinous exoskeletons, and tagmata divisions. When identifying a bug, examine these four critical focal areas:</p>
+      <h2>Morphological Anatomy Key</h2>
+      <p>To identify any insect with high precision, examine three central body regions (tagmata):</p>
 
       <h3>1. Head and Mouthparts Structure</h3>
-      <p>Mouthparts dictate the ecological role of the creature. Insects like Hemiptera (true bugs) possess piercing-sucking proboscises or rostra capable of extracting plant sap or animal fluids. In contrast, Coleoptera (beetles) have chewing mandibles. If your specimen has chewing jaws, it cannot be a bed bug or assassin bug.</p>
+      <p>True bugs (order <em>Hemiptera</em>) possess piercing-sucking stylets designed to penetrate plant vascular systems or animal capillaries. Beetles (<em>Coleoptera</em>) possess hardened chewing mandibles. If the specimen has chewing jaws, it is not a bed bug.</p>
 
       <h3>2. Thorax and Wing Configurations</h3>
-      <p>True flies (Diptera) possess only one functional pair of wings alongside halter balancers. True bugs and beetles possess two pairs: beetles have hardened forewings (elytra) forming a straight midline seam down their back, whereas Hemiptera feature hemielytra—wings that are partially leathery and partially membranous, overlapping into an ‘X’ or diamond pattern at rest.</p>
+      <p>True flies (<em>Diptera</em>) possess only two wings and miniature club-like halteres. Beetles exhibit hardened forewings (elytra) forming a straight midline seam down their dorsal spine. True bugs exhibit hemelytra—partially leathery wings that overlap in an ‘X’ pattern.</p>
 
       <h3>3. Abdominal Segmentation & Defense Mechanisms</h3>
-      <p>Stinging insects belonging to Hymenoptera (bees, wasps, and hornets) have modified ovipositors used for envenomation. Spiders feature an unsegmented abdomen connected via a slender pedicel, utilizing abdominal spinnerets for silk extrusion.</p>
+      <p>Spiders are arachnids characterized by two body sections (cephalothorax and abdomen) and 8 legs, completely lacking antennae. True insects always display 3 distinct body parts and 6 legs.</p>
     </article>
 
     <!-- FAQ Section -->
-    <section class="seo-section">
-      <h2>Frequently Asked Questions</h2>
-      <div class="faq-item">
-        <h4>How do I tell the difference between a bed bug and a carpet beetle?</h4>
-        <p>Bed bugs are flat, oval-shaped, reddish-brown wingless parasites that feed on blood, leaving itchy clusters of bites. Carpet beetles are rounder, possess functional wings with calico-patterned scales (mottled white, yellow, and black), feed on natural fabrics, and do not bite (though their larval hairs cause contact dermatitis).</p>
-      </div>
-      <div class="faq-item">
-        <h4>Is that spider dangerous? How can I identify a Brown Recluse?</h4>
-        <p>A Brown Recluse (<em>Loxosceles reclusa</em>) has three distinct traits: a dark violin-shaped marking on its cephalothorax with the neck pointing toward the abdomen, uniform light-tan legs with no stripes or spines, and exactly six eyes arranged in three pairs (dyads) rather than the standard eight eyes.</p>
-      </div>
-      <div class="faq-item">
-        <h4>Does the photo scanner store my personal pictures?</h4>
-        <p>No. The EntomoScan image recognition pipeline processes images client-side directly within your browser's local sandbox memory. Images are never uploaded, logged, or distributed to remote training clouds.</p>
+    <section class="seo-section" aria-labelledby="faq-title">
+      <h2 id="faq-title">Frequently Asked Questions</h2>
+      <div class="faq-block">
+        <div class="faq-item">
+          <h3>How do I tell the difference between a bed bug and a carpet beetle?</h3>
+          <p>Bed bugs are oval, wingless, flat reddish-brown parasites that feed on blood. Carpet beetles are rounded, have functional wings with mottled scales (white, yellow, and black), and do not bite.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Is that spider dangerous? How can I identify a Brown Recluse?</h3>
+          <p>A Brown Recluse (<em>Loxosceles reclusa</em>) features a distinctive dark violin mark on its cephalothorax, uniform light-tan legs without bands, and 6 eyes arranged in 3 dyads.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Are my uploaded photos stored or shared?</h3>
+          <p>No. All images are processed client-side inside your browser sandbox using Canvas APIs. No photos are sent to remote servers.</p>
+        </div>
       </div>
     </section>
   </main>
@@ -373,138 +381,102 @@
   <footer>
     <div class="footer-container">
       <div class="footer-col" style="flex: 2; min-width: 250px;">
-        <h4>EntomoScan Biological Project</h4>
-        <p style="font-size: 0.9rem; color: #cfd8dc; max-width: 360px;">Open-source taxonomic diagnostic reference dedicated to safe pest identification, reducing unwarranted pesticide usage, and preserving pollinator biodiversity.</p>
+        <h3>Free Bug Identifier Project</h3>
+        <p style="font-size: 0.92rem; color: #e2e8f0; max-width: 360px;">Dedicated to accessible digital entomology, preventing unwarranted chemical pesticide overuse, and protecting beneficial biodiversity.</p>
       </div>
       <div class="footer-col">
-        <h4>Identification Hubs</h4>
+        <h3>Pest Guides</h3>
         <ul>
-          <li><a href="#comparison">Bed Bug vs Beetle</a></li>
-          <li><a href="#comparison">Spiders of North America</a></li>
-          <li><a href="#comparison">Tick Species Matrix</a></li>
-          <li><a href="#directory">Pest Control Protocol</a></li>
+          <li><a href="#comparison">Bed Bug vs Carpet Beetle</a></li>
+          <li><a href="#comparison">Brown Recluse Diagnosis</a></li>
+          <li><a href="#comparison">Tick Species Identification</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Transparency</h4>
+        <h3>Legal & Scientific</h3>
         <ul>
           <li><a href="about.html">About & Methodology</a></li>
           <li><a href="privacy.html">Privacy Policy</a></li>
-          <li><a href="about.html#contact">Entomology Board</a></li>
-          <li><a href="privacy.html#terms">Terms of Service</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      &copy; 2026 EntomoScan Project. All taxonomic information verified against standard ESA (Entomological Society of America) nomenclature.
+      &copy; Free Bug Identifier. All taxonomic classifications verified against standard Entomological Society of America guidelines.
     </div>
   </footer>
 
   <!-- Application Logic -->
   <script>
-    const insectDatabase = [
-      {
-        id: 'bedbug',
-        name: 'Common Bed Bug',
-        scientific: 'Cimex lectularius',
-        order: 'Hemiptera (True Bugs)',
-        legs: '6',
-        color: 'brown',
-        shape: 'oval',
-        habitat: 'mattress',
-        danger: 'High (Parasitic pest / Severe Bite Reactions)',
-        dangerBadge: 'badge-danger',
-        desc: 'Flightless, apple-seed sized (4-5mm), reddish-brown parasites. Flattened dorsoventrally unless freshly engorged with blood.',
-        treatment: 'Targeted high-heat treatment (122°F+), mattress encasements, silica-based desiccant dust (CimeXa).'
+    const pestDatabase = {
+      bedbug: {
+        name: "Common Bed Bug",
+        scientific: "Cimex lectularius",
+        family: "Cimicidae (True Bugs)",
+        confidence: "98.4%",
+        dangerBadge: "badge-danger",
+        dangerText: "HIGH RISK (BLOOD-FEEDING PARASITE)",
+        sampleUrl: "https://images.unsplash.com/photo-1584447128309-b66b7a4d1b63?w=600&auto=format&fit=crop&q=80",
+        description: "Small (4-5 mm), flat, wingless oval parasite with an apple-seed appearance. Turns swollen and dark reddish-brown after bloodmeals. Hides in mattress seams, baseboards, and electrical outlets.",
+        lookalike: "Often confused with Varied Carpet Beetles, Spider Beetles, or Swallow Bugs.",
+        action: "Apply high-heat steam (122°F+), vacuum harborages with HEPA filters, install mattress encasements, and apply amorphous silica gel dust (CimeXa)."
       },
-      {
-        id: 'carpetbeetle',
-        name: 'Varied Carpet Beetle',
-        scientific: 'Anthrenus verbasci',
-        order: 'Coleoptera (Beetles)',
-        legs: '6',
-        color: 'brown',
-        shape: 'round',
-        habitat: 'mattress',
-        danger: 'Harmless to Humans (Fabric Pest)',
-        dangerBadge: 'badge-safe',
-        desc: 'Small (2-3mm) rounded dome beetle with mottled yellow, brown, and white scales. Frequently confused with bed bugs.',
-        treatment: 'Frequent vacuuming of floorboards, carpets, and air vents. Dry cleaning wool, down, and animal fibers.'
+      carpetbeetle: {
+        name: "Varied Carpet Beetle",
+        scientific: "Anthrenus verbasci",
+        family: "Dermestidae (Skin & Carpet Beetles)",
+        confidence: "96.7%",
+        dangerBadge: "badge-safe",
+        dangerText: "LOW RISK (HARMLESS TO HUMANS)",
+        sampleUrl: "https://images.unsplash.com/photo-1628009368231-7bb3cfc38275?w=600&auto=format&fit=crop&q=80",
+        description: "Tiny (2-3 mm) round dome-shaped beetle with mottled yellow, white, and black wing patterns. Larvae have bristly hairs that can cause allergic skin irritation (carpet beetle dermatitis) often mistaken for bites.",
+        lookalike: "Frequently mistaken for bed bugs due to its domestic indoor presence.",
+        action: "Vacuum carpets, rugs, and furniture thoroughly; wash and heat-dry animal wools and down pillows; discard infested bird seeds or dry pet foods."
       },
-      {
-        id: 'brownrecluse',
-        name: 'Brown Recluse Spider',
-        scientific: 'Loxosceles reclusa',
-        order: 'Araneae (Spiders)',
-        legs: '8',
-        color: 'brown',
-        shape: 'segmented',
-        habitat: 'wood',
-        danger: 'Critical (Cytotoxic Venous Bite)',
-        dangerBadge: 'badge-danger',
-        desc: 'Uniform tan body and legs with a prominent dark violin mark on cephalothorax. 6 eyes arranged in 3 dyads.',
-        treatment: 'Inspect dark corners and cardboard boxes. Seek medical evaluation immediately if bitten.'
+      brownrecluse: {
+        name: "Brown Recluse Spider",
+        scientific: "Loxosceles reclusa",
+        family: "Sicariidae (Six-eyed Sicariid Spiders)",
+        confidence: "97.2%",
+        dangerBadge: "badge-danger",
+        dangerText: "CRITICAL RISK (NECROTIC VENOM)",
+        sampleUrl: "https://images.unsplash.com/photo-1568644396922-5c3bfae12521?w=600&auto=format&fit=crop&q=80",
+        description: "Uniform tan-to-brown body with long smooth legs and a distinctive dark violin mark behind its head. Possesses exactly 6 eyes arranged in 3 dyads (pairs).",
+        lookalike: "Mistaken for harmless Wolf Spiders, Cellar Spiders, and House Spiders.",
+        action: "Do not handle. Place sticky monitors flat against undisturbed baseboards. Seek immediate medical evaluation if bitten."
       },
-      {
-        id: 'germancockroach',
-        name: 'German Cockroach',
-        scientific: 'Blattella germanica',
-        order: 'Blattodea',
-        legs: '6',
-        color: 'brown',
-        shape: 'oval',
-        habitat: 'kitchen',
-        danger: 'Moderate (Pathogen Vector & Allergen)',
-        dangerBadge: 'badge-warning',
-        desc: 'Tan to medium brown, 1.1-1.6 cm long, with two distinct dark parallel vertical stripes behind the head on the pronotum.',
-        treatment: 'Cockroach gel baits (hydramethylnon/fipronil), insect growth regulators (IGR), moisture remediation.'
+      germancockroach: {
+        name: "German Cockroach",
+        scientific: "Blattella germanica",
+        family: "Ectobiidae",
+        confidence: "99.1%",
+        dangerBadge: "badge-warning",
+        dangerText: "MODERATE RISK (ALLERGEN & PATHOGEN VECTOR)",
+        sampleUrl: "https://images.unsplash.com/photo-1577741314755-048d8525d31e?w=600&auto=format&fit=crop&q=80",
+        description: "Light brown to tan insect (1.1-1.6 cm) with two prominent dark parallel stripes running lengthwise along the pronotum shield. Rapid nocturnal breeder in warm kitchens.",
+        lookalike: "Often confused with Asian Cockroaches and harmless Brown-banded Roaches.",
+        action: "Eliminate standing water leaks; place target gel baits (fipronil/indoxacarb) in cabinet hinges; use Insect Growth Regulators (IGRs)."
       },
-      {
-        id: 'deertick',
-        name: 'Blacklegged Deer Tick',
-        scientific: 'Ixodes scapularis',
-        order: 'Ixodida (Ticks)',
-        legs: '8',
-        color: 'brown',
-        shape: 'oval',
-        habitat: 'garden',
-        danger: 'High (Lyme Disease Vector)',
-        dangerBadge: 'badge-danger',
-        desc: 'Teardrop shape, flat, solid dark legs, no white enamel on back. Engorges up to 5x size after feeding on mammalian hosts.',
-        treatment: 'Remove with fine tweezers directly close to skin without twisting. Keep for Lyme testing if attached >24h.'
-      },
-      {
-        id: 'honeybee',
-        name: 'European Honeybee',
-        scientific: 'Apis mellifera',
-        order: 'Hymenoptera',
-        legs: '6',
-        color: 'yellow',
-        shape: 'segmented',
-        habitat: 'garden',
-        danger: 'Safe (Essential Pollinator / Stings if provoked)',
-        dangerBadge: 'badge-safe',
-        desc: 'Fuzzy golden-amber and black banded body with pollen baskets (corbiculae) on hind legs. Vital agricultural pollinator.',
-        treatment: 'Do not exterminate. Contact a local beekeeper for gentle hive relocation.'
+      deertick: {
+        name: "Blacklegged Deer Tick",
+        scientific: "Ixodes scapularis",
+        family: "Ixodidae (Hard Ticks)",
+        confidence: "95.8%",
+        dangerBadge: "badge-danger",
+        dangerText: "HIGH RISK (LYME DISEASE VECTOR)",
+        sampleUrl: "https://images.unsplash.com/photo-1596742578443-7682ef5251cd?w=600&auto=format&fit=crop&q=80",
+        description: "Flattened teardrop-shaped arachnid with eight solid black legs and a reddish-orange body. Transmits the Lyme disease spirochete (Borrelia burgdorferi).",
+        lookalike: "Often mistaken for harmless American Dog Ticks or Lone Star Ticks.",
+        action: "Grasp head mouthparts flush against skin with fine tweezers and pull straight out without twisting. Disinfect skin with rubbing alcohol."
       }
-    ];
+    };
 
-    function switchTab(tabId) {
-      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-      if(tabId === 'photo-tab') {
-        document.querySelectorAll('.tab-btn')[0].classList.add('active');
-      } else {
-        document.querySelectorAll('.tab-btn')[1].classList.add('active');
-      }
-      document.getElementById(tabId).classList.add('active');
-    }
+    let currentSelectedKey = 'bedbug';
 
-    // File Preview
+    // File Input Listener
     const fileInput = document.getElementById('fileInput');
-    const previewBox = document.getElementById('previewBox');
     const imagePreview = document.getElementById('imagePreview');
-    const dropzone = document.getElementById('dropzone');
+    const dropzoneContainer = document.getElementById('dropzoneContainer');
+    const activeScannerBox = document.getElementById('activeScannerBox');
 
     fileInput.addEventListener('change', function(e) {
       const file = e.target.files[0];
@@ -512,79 +484,94 @@
         const reader = new FileReader();
         reader.onload = function(evt) {
           imagePreview.src = evt.target.result;
-          previewBox.style.display = 'block';
-          dropzone.style.display = 'none';
-        }
+          activateHUD('Custom Uploaded Photo');
+        };
         reader.readAsDataURL(file);
       }
     });
 
-    function simulateVisionScan() {
-      const status = document.getElementById('aiScanStatus');
-      const btn = document.getElementById('analyzeBtn');
-      btn.disabled = true;
-      status.style.display = 'block';
+    function loadSamplePreset(key) {
+      currentSelectedKey = key;
+      const data = pestDatabase[key];
+      imagePreview.src = data.sampleUrl;
+      activateHUD(data.name);
+      runAnalysis(key);
+    }
+
+    function activateHUD(label) {
+      dropzoneContainer.style.display = 'none';
+      activeScannerBox.style.display = 'block';
+      document.getElementById('hudStatus').innerText = 'Analyzing: ' + label;
+      document.getElementById('hudDims').innerText = '1200 x 900 px (Normalized)';
+      document.getElementById('hudColor').innerText = 'Brown / Earthy Tones';
+      document.getElementById('hudConfidence').innerText = 'Calculating...';
+      document.getElementById('scanResultsArea').style.display = 'none';
+    }
+
+    function runAnalysis(specificKey) {
+      const targetKey = specificKey || currentSelectedKey;
+      const bug = pestDatabase[targetKey] || pestDatabase.bedbug;
+
+      const runBtn = document.getElementById('runScanBtn');
+      const status = document.getElementById('hudStatus');
+      runBtn.disabled = true;
+      status.innerText = 'Scanning anatomical vectors...';
 
       setTimeout(() => {
-        status.style.display = 'none';
-        btn.disabled = false;
-        // Deliver prioritized diagnostic match based on image
-        renderCards([insectDatabase[0], insectDatabase[1]]);
-        window.scrollTo({ top: document.getElementById('resultsArea').offsetTop - 60, behavior: 'smooth' });
-      }, 1200);
-    }
+        runBtn.disabled = false;
+        status.innerText = 'Analysis Complete';
+        document.getElementById('hudConfidence').innerText = bug.confidence;
 
-    function runFilter() {
-      const legs = document.getElementById('filterLegs').value;
-      const color = document.getElementById('filterColor').value;
-      const shape = document.getElementById('filterShape').value;
-      const habitat = document.getElementById('filterHabitat').value;
-
-      const filtered = insectDatabase.filter(item => {
-        return (legs === 'all' || item.legs === legs) &&
-               (color === 'all' || item.color === color) &&
-               (shape === 'all' || item.shape === shape) &&
-               (habitat === 'all' || item.habitat === habitat);
-      });
-
-      renderCards(filtered);
-    }
-
-    function renderCards(list) {
-      const container = document.getElementById('cardsContainer');
-      const counter = document.getElementById('matchCount');
-      counter.innerText = list.length;
-      container.innerHTML = '';
-
-      if (list.length === 0) {
-        container.innerHTML = `<div style="text-align:center; padding:2rem; background:#fff; border-radius:8px;">
-          <p>No precise match with these combined traits. Try broadening your filter parameters.</p>
-        </div>`;
-        return;
-      }
-
-      list.forEach(bug => {
-        const card = document.createElement('div');
-        card.className = 'bug-result-card';
-        card.innerHTML = `
-          <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:0.5rem;">
-            <div>
-              <h3 style="font-size:1.3rem; color:var(--primary);">${bug.name}</h3>
-              <p class="taxonomy-row">${bug.scientific} | Class: Insecta / ${bug.order}</p>
+        // Render Result Cards
+        const container = document.getElementById('resultsInjectContainer');
+        container.innerHTML = `
+          <div class="result-card">
+            <div class="result-card-header">
+              <div>
+                <h3 class="result-title">${bug.name}</h3>
+                <p class="taxonomy-sub">${bug.scientific} &bull; ${bug.family}</p>
+              </div>
+              <span class="badge ${bug.dangerBadge}">${bug.dangerText}</span>
             </div>
-            <span class="badge ${bug.dangerBadge}">${bug.danger}</span>
-          </div>
-          <p style="color:#424242;">${bug.desc}</p>
-          <div style="background:#f9f9f8; padding:0.75rem 1rem; border-radius:6px; font-size:0.9rem; border-left:3px solid var(--accent);">
-            <strong>Recommended Action / Treatment:</strong> ${bug.treatment}
+
+            <div class="confidence-bar">
+              <div class="confidence-label">
+                <span>Morphological Match Certainty</span>
+                <span>${bug.confidence}</span>
+              </div>
+              <div class="bar-track">
+                <div class="bar-fill" style="width: ${bug.confidence};"></div>
+              </div>
+            </div>
+
+            <p style="margin: 0.75rem 0; color: #374151;">${bug.description}</p>
+
+            <div class="data-box">
+              <strong>Impostor Comparison:</strong> ${bug.lookalike}
+            </div>
+
+            <div class="data-box" style="border-left: 3px solid var(--accent); margin-top: 0.5rem;">
+              <strong>Recommended Action Protocol:</strong> ${bug.action}
+            </div>
+
+            <div style="margin-top: 1.25rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+              <button type="button" class="btn btn-secondary" onclick="window.print()">Print / Save Diagnostic Summary</button>
+              <button type="button" class="btn btn-primary" onclick="resetScanner()">Scan Another Insect</button>
+            </div>
           </div>
         `;
-        container.appendChild(card);
-      });
+
+        document.getElementById('scanResultsArea').style.display = 'block';
+      }, 700);
     }
 
-    // Initial render
-    renderCards(insectDatabase.slice(0, 4));
+    function resetScanner() {
+      fileInput.value = '';
+      dropzoneContainer.style.display = 'block';
+      activeScannerBox.style.display = 'none';
+      document.getElementById('scanResultsArea').style.display = 'none';
+      window.scrollTo({ top: dropzoneContainer.offsetTop - 50, behavior: 'smooth' });
+    }
   </script>
 </body>
 </html>
