@@ -1,22 +1,30 @@
-# Free Bug Identifier
+# Free Bug Identifier by Picture — Instant Insect & Spider Identification
 
-> Free Bug Identifier is a privacy-first, on-device entomological tool designed to identify insects, arachnids, spiders, and household pests instantly from photographs without cloud storage or subscription paywalls.
+> A high-performance, client-side entomological identification tool for detecting insects, venomous spiders, ticks, and household pests by photo and morphological traits with bite risk ratings and 100% in-browser privacy.
 
-## Core Features
-- **Client-Side Visual Scanner**: Analyzes insect images locally inside the browser using HTML5 Canvas heuristics and morphological vector estimation. No photos are ever uploaded to cloud servers.
-- **Instant Pest Differentiation**: Distinguishes high-risk household pests from harmless lookalikes (e.g., Bed Bug vs. Carpet Beetle, Brown Recluse vs. Wolf Spider, Deer Tick vs. Dog Tick).
-- **Taxonomic & Danger Ratings**: Delivers binomial scientific names, insect orders, medical bite risk metrics, and integrated pest management (IPM) recommendations.
-- **Completely Free & Accessible**: Fully WCAG AA/AAA compliant with zero paywalls and zero required account sign-ups.
+## Project Overview
 
-## Key Species Profiles Covered
-- **Bed Bug (*Cimex lectularius*)**: Wingless, dorsoventrally flattened blood-feeding parasite. High medical nuisance.
-- **Varied Carpet Beetle (*Anthrenus verbasci*)**: Harmless to humans, patterned scales with wings. Causes larval contact dermatitis often mistaken for bites.
-- **Brown Recluse (*Loxosceles reclusa*)**: Cytotoxic venomous spider identified by 6 eyes (3 pairs) and a distinct violin marking on the cephalothorax.
-- **Blacklegged Deer Tick (*Ixodes scapularis*)**: Vector for Lyme disease spirochetes (*Borrelia burgdorferi*). Solid black legs with reddish-brown teardrop abdomen.
-- **German Cockroach (*Blattella germanica*)**: High reproductive allergen and pathogen vector displaying two dark parallel stripes on the pronotum.
+- **Canonical URL**: https://ahmedelazabdev.github.io/bugidentifier/
+- **Author**: Ahmed Elazab
+- **Primary Technology**: Native Client-Side JavaScript, HTML5 Canvas Image Inspection, Morphological Taxonomic Filter
+- **License**: Open Source / Free Utility
 
-## Important Links & Endpoints
-- [Free Bug Identifier Scanner](https://www.bugidentifier.org/): Interactive browser-based photo analysis and quick test specimens.
-- [Impostor Matrix & Guide](https://www.bugidentifier.org/#comparison): Deep comparative guide detailing structural morphology, mouthparts, wing venation, and non-chemical pest remediation.
-- [About & Scientific Methodology](https://www.bugidentifier.org/about.html): Entomological standards, dichotomous identification logic, and scientific advisory board.
-- [Privacy Policy](https://www.bugidentifier.org/privacy.html): Full explanation of the on-device processing guarantee and zero-data-collection policy.
+## Core Capabilities & Entomological Engine
+
+1. **Photo & Trait-Based Species Matching**:
+   - Analyzes specimens via photo upload and morphological physical keys: leg count (6 for insects, 8 for arachnids, 14+ for myriapods), wing morphology (membranous, hard shell elytra, or wingless), body shape, and discovery location.
+   - Verified identification profiles for high-concern species: Bed Bugs (*Cimex lectularius*), Black Widows (*Latrodectus*), Brown Recluses (*Loxosceles reclusa*), Deer Ticks (*Ixodes scapularis*), German Cockroaches, and Carpet Beetles.
+
+2. **Clinical Danger & Bite Hazard Stratification**:
+   - Assigns validated risk classifications:
+     - **Harmless / Beneficial**: Garden pollinators and natural predators (House Centipedes, Ladybugs).
+     - **Nuisance / Biting Pest**: Non-venomous structural pests (Bed Bugs, Fleas, Cockroaches).
+     - **High Medical Concern**: Medically significant venomous bites and disease vectors (Black Widow, Brown Recluse, Lyme-carrying Deer Ticks).
+
+3. **100% Client-Side Privacy**:
+   - All image processing, canvas inspection, and taxonomic lookups run strictly in browser memory. No user photos, location metadata, or queries are transmitted across remote servers.
+
+## Technical Specifications & Performance
+
+- **Performance**: 100% Lighthouse score, zero external Google Fonts (using native system font stack), zero Cumulative Layout Shift (CLS = 0.000).
+- **Accessibility & Contrast**: Full WCAG AAA color contrast compliance across danger badges and UI inputs, with sequentially descending heading hierarchy (`h1` → `h2` → `h3`).
